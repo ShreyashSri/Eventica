@@ -143,6 +143,7 @@ body {
     background-color: var(--primary-color);
     color: white;
     border: none;
+    margin: 0px 10px 14px 0px;
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
