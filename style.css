@@ -609,6 +609,10 @@ body.dark-mode .navbar {
     background-color: rgba(24, 24, 24, 0.9);
 }
 
+body.dark-mode .fa-bars {
+    color: white;
+}
+
 /* Dark mode toggle button Css */
 
 #dark-mode-toggle {
@@ -807,6 +811,10 @@ body.dark-mode .event-date,
 
     body.dark-mode .theme-controls {
         border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark-mode .nav-links a {
+        color: #2a2a2a;
     }
 }
 
