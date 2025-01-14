@@ -155,19 +155,27 @@ body {
 
 /* Theme Switcher Css */
 
-.theme-switcher {
-    position: relative;
+.theme-controls {
     display: flex;
     align-items: center;
-    z-index: 1001;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    gap: 1rem;
+}
+
+.theme-switcher {
+    margin: 0;
+    position: relative;
 }
 
 #theme-toggle {
     background-color: var(--primary-color);
     border: none;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     margin-left: 1rem;
@@ -182,44 +190,43 @@ body {
 }
 
 #theme-toggle svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     color: #fff;
 }
 
 .theme-options {
     position: absolute;
     top: 120%;
-    right: 0;
+    left: 50%;
     background-color: #fff;
-    border-radius: 20px;
-    padding: 10px;
+    border-radius: 12px;
+    padding: 0.8rem;
     display: flex;
-    gap: 10px;
+    gap: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .theme-options.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
 }
 
 .theme-btn {
-    width: 24px;
-    height: 24px;
-    border: none;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    border: 2px solid transparent;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .theme-btn:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    border-color: #fff;
 }
 
 .theme-btn[data-color="red"] {
@@ -240,6 +247,15 @@ body {
 
 .theme-btn[data-color="purple"] {
     background-color: #9b59b6;
+}
+
+body.dark-mode .theme-options {
+    background-color: #2c2c2c;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .theme-controls {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Theme-specific colors */
@@ -823,9 +839,22 @@ body.dark-mode .event-date,
         font-size: 1.1rem;
     }
 
+    .theme-controls {
+        padding-top: 0.8rem;
+    }
+
     #theme-toggle, #dark-mode-toggle {
         width: 40px;
         height: 40px;
+    }
+
+    #theme-toggle svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    #dark-mode-toggle i {
+        font-size: 18px;
     }
 }
 
