@@ -1092,6 +1092,9 @@ footer {
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
     }
+    body.dark-mode .nav-links a {
+        color: #2a2a2a;
+    }
 
     .nav-links li:last-child {
         border-bottom: none;
@@ -1203,6 +1206,31 @@ footer {
     }
 }
 
+@media (max-width: 925px) {
+    .social {
+        font-size: 2.5rem;
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .footer-container {
+        margin: 2px 3px;
+    }
+
+    .company-info,
+    .quick-links,
+    .send-message {
+        margin-top: 8px;
+        text-align: center;
+        flex-basis: 100%;
+    }
+}
+
 @media (max-width: 768px) {
     html {
         font-size: 14px;
@@ -1223,6 +1251,24 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 0 0.5rem;
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+    }
+
+    .event-card {
+        margin: 0 -1rem;
+    }
+
+    .to-top {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
     .nav-items {
         width: 320px; /* Adjusted for mobile */
         padding: 1.5rem;
