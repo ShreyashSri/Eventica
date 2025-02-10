@@ -65,6 +65,9 @@ function createEventCard(event, isPastEvent = false) {
 
     return `
         <div class="${isPastEvent ? 'past-event-card' : 'event-card'}">
+            <div class="event-background">
+                <img src="${event.image}" alt="Background" class="blurred-image">
+            </div>
             <a href="${event.website || '#'}" target="_blank" rel="noopener noreferrer" class="${isPastEvent ? 'past-card-link' : 'card-link'}">
                 <img src="${event.image}" alt="${event.title}" class="${isPastEvent ? 'past-event-image' : 'event-image'}">
                 <div class="${isPastEvent ? 'past-event-details' : 'event-details'}">
@@ -228,9 +231,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Dark mode toggle
+// Dark mode toggle based on preference
+function applyDarkModePreference() {
+    const darkModeStatus = localStorage.getItem('darkMode');
+    if (darkModeStatus === 'enabled') {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+// Immediately apply the stored dark mode preference
+applyDarkModePreference();
+
+// Toggle dark mode and save the preference
 document.getElementById('dark-mode-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+    const isDarkMode = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 });
 
 // Mobile menu functionality
@@ -240,7 +257,7 @@ const navItems = document.querySelector('.nav-items');
 mobileMenuBtn.addEventListener('click', () => {
     mobileMenuBtn.classList.toggle('active');
     navItems.classList.toggle('active');
-    
+
     // Update accessibility attributes
     const isOpen = navItems.classList.contains('active');
     mobileMenuBtn.setAttribute('aria-expanded', isOpen);
